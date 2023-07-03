@@ -1,0 +1,26 @@
+<h2>Form</h2>
+<form (ngSubmit)="submitForm()" #form="ngForm">
+  <div>
+    <label for="dropdown">Select Option:</label>
+    <select id="dropdown" name="option" [(ngModel)]="selectedOption" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Salary">Salary</option>
+      <option value="Personnel Data">Personnel Data</option>
+      <option value="Promotion">Promotion</option>
+    </select>
+  </div>
+  <div>
+    <label for="allOption">All</label>
+    <input type="radio" id="allOption" name="optionType" [(ngModel)]="radioOption" value="all" (change)="toggleTextArea()">
+  </div>
+  <div>
+    <label for="employeeOption">Employee Only</label>
+    <input type="radio" id="employeeOption" name="optionType" [(ngModel)]="radioOption" value="employee" (change)="toggleTextArea()">
+  </div>
+  <div>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" [(ngModel)]="message" [disabled]="isTextAreaDisabled()"></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
